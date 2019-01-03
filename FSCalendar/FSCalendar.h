@@ -403,6 +403,11 @@ IB_DESIGNABLE
 @property (readonly, nonatomic) NSArray<NSDate *> *selectedDates;
 
 /**
+ The calendar font.
+ */
+@property (assign, nonatomic) UIFont *calendarFont;
+
+/**
  Reload the dates and appearance of the calendar.
  */
 - (void)reloadData;

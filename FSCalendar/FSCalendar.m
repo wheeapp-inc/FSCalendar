@@ -233,6 +233,13 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     
 }
 
+- (void)setCalendarFont:(UIFont *)calendarFont {
+    _calendarFont = calendarFont;
+    _appearance.titleFont = calendarFont;
+    _appearance.subtitleFont = calendarFont;
+    [self.collectionView reloadData];
+}
+
 - (void)dealloc
 {
     self.collectionView.delegate = nil;
