@@ -256,7 +256,7 @@
 {
     if (self.isSelected) {
         if (self.dateIsToday) {
-            return dictionary[@(FSCalendarCellStateSelected|FSCalendarCellStateToday)] ?: dictionary[@(FSCalendarCellStateSelected)];
+            return dictionary[@(FSCalendarCellStateTodaySelected)] ?: dictionary[@(FSCalendarCellStateSelected)];
         }
         return dictionary[@(FSCalendarCellStateSelected)];
     }

@@ -59,6 +59,16 @@ typedef NS_OPTIONS(NSUInteger, FSCalendarCaseOptions) {
 @property (strong, nonatomic) UIFont   *weekdayFont;
 
 /**
+ * The font of the today text.
+ */
+@property (strong, nonatomic) UIFont   *todayFont;
+
+/**
+ * The font of the today text.
+ */
+@property (strong, nonatomic) UIFont   *todaySelectionFont;
+
+/**
  * The font of the month text.
  */
 @property (strong, nonatomic) UIFont   *headerTitleFont;
@@ -127,6 +137,11 @@ typedef NS_OPTIONS(NSUInteger, FSCalendarCaseOptions) {
  * The day text color for today in the calendar.
  */
 @property (strong, nonatomic) UIColor  *titleTodayColor;
+
+/**
+ * The day text color for today in the calendar.
+ */
+@property (strong, nonatomic) UIColor  *titleTodaySelectionColor;
 
 /**
  * The day text color for days out of current month.

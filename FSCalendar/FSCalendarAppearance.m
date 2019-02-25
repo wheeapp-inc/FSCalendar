@@ -48,12 +48,13 @@
         _backgroundColors[@(FSCalendarCellStatePlaceholder)] = [UIColor clearColor];
         _backgroundColors[@(FSCalendarCellStateToday)]       = FSCalendarStandardTodayColor;
         
-        _titleColors = [NSMutableDictionary dictionaryWithCapacity:5];
+        _titleColors = [NSMutableDictionary dictionaryWithCapacity:6];
         _titleColors[@(FSCalendarCellStateNormal)]      = [UIColor blackColor];
         _titleColors[@(FSCalendarCellStateSelected)]    = [UIColor whiteColor];
         _titleColors[@(FSCalendarCellStateDisabled)]    = [UIColor grayColor];
         _titleColors[@(FSCalendarCellStatePlaceholder)] = [UIColor lightGrayColor];
         _titleColors[@(FSCalendarCellStateToday)]       = [UIColor whiteColor];
+        _titleColors[@(FSCalendarCellStateTodaySelected)] = [UIColor whiteColor];
         
         _subtitleColors = [NSMutableDictionary dictionaryWithCapacity:5];
         _subtitleColors[@(FSCalendarCellStateNormal)]      = [UIColor darkGrayColor];
@@ -186,6 +187,21 @@
 - (UIColor *)titleTodayColor
 {
     return _titleColors[@(FSCalendarCellStateToday)];
+}
+
+- (void)setTitleTodaySelectionColor:(UIColor *)color
+{
+    if (color) {
+        _titleColors[@(FSCalendarCellStateTodaySelected)] = color;
+    } else {
+        [_titleColors removeObjectForKey:@(FSCalendarCellStateTodaySelected)];
+    }
+    [self.calendar configureAppearance];
+}
+
+- (UIColor *)titleTodaySelectionColor
+{
+    return _titleColors[@(FSCalendarCellStateTodaySelected)];
 }
 
 - (void)setTitlePlaceholderColor:(UIColor *)color
