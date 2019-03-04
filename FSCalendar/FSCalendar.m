@@ -1380,10 +1380,14 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     cell.calendar = self;
     NSDate *date = [self.calculator dateForIndexPath:indexPath];
     cell.image = [self.dataSourceProxy calendar:self imageForDate:date];
-    cell.numberOfEvents = [self.dataSourceProxy calendar:self numberOfEventsForDate:date];
     cell.titleLabel.text = [self.dataSourceProxy calendar:self titleForDate:date] ?: @([self.gregorian component:NSCalendarUnitDay fromDate:date]).stringValue;
     cell.subtitle  = [self.dataSourceProxy calendar:self subtitleForDate:date];
     cell.selected = [_selectedDates containsObject:date];
+    if (cell.isSelected) {
+        cell.numberOfEvents = 0;
+    } else {
+        cell.numberOfEvents = [self.dataSourceProxy calendar:self numberOfEventsForDate:date];
+    }
     cell.dateIsToday = self.today?[self.gregorian isDate:date inSameDayAsDate:self.today]:NO;
     cell.weekend = [self.gregorian isDateInWeekend:date];
     cell.monthPosition = [self.calculator monthPositionForIndexPath:indexPath];
