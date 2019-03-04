@@ -247,9 +247,14 @@
         _eventIndicator.hidden = !_numberOfEvents;
     }
     
-    _eventIndicator.numberOfEvents = self.numberOfEvents;
-    _eventIndicator.color = self.colorsForEvents;
-
+    
+    
+    if (self.selected) {
+        _eventIndicator.numberOfEvents = 0;
+    } else {
+        _eventIndicator.numberOfEvents = self.numberOfEvents;
+        _eventIndicator.color = self.colorsForEvents;
+    }
 }
 
 - (UIColor *)colorForCurrentStateInDictionary:(NSDictionary *)dictionary
@@ -403,7 +408,7 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
     [super layoutSubviews];
     CGFloat diameter = MIN(MIN(self.fs_width, self.fs_height),FSCalendarMaximumEventDotDiameter);
     self.contentView.fs_height = self.fs_height;
-    self.contentView.fs_width = (self.numberOfEvents*2-1)*diameter;
+    self.contentView.fs_width = (self.numberOfEvents*1.5-1)*diameter;
     self.contentView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
 }
 
