@@ -249,7 +249,7 @@
     
     
     
-    if (self.selected) {
+    if (self.selected || self.dateIsToday) {
         _eventIndicator.numberOfEvents = 0;
     } else {
         _eventIndicator.numberOfEvents = self.numberOfEvents;
