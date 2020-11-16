@@ -443,9 +443,11 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
             }
         } else if ([_color isKindOfClass:[NSArray class]]) {
             NSArray<UIColor *> *colors = (NSArray *)_color;
-            for (int i = 0; i < self.eventLayers.count; i++) {
-                CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
-                eventLayer.backgroundColor = colors[MIN(i,colors.count-1)].CGColor;
+            if (colors != nil && colors.count > 0){
+                for (int i = 0; i < self.eventLayers.count; i++) {
+                    CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
+                    eventLayer.backgroundColor = colors[MIN(i,colors.count-1)].CGColor;
+                }
             }
         }
         
